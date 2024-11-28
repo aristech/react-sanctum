@@ -48,6 +48,7 @@ const Sanctum: React.FC<Props> = ({ checkOnInit = true, config, children }) => {
   const signIn = (
     username: string,
     password: string,
+    device_name: string = "unknown",
     remember: boolean = false
   ): Promise<{ twoFactor: boolean; signedIn: boolean; user?: {} }> => {
     const { apiUrl, signInRoute, usernameKey } = config;
@@ -63,6 +64,7 @@ const Sanctum: React.FC<Props> = ({ checkOnInit = true, config, children }) => {
           {
             [usernameKey || "email"]: username,
             password,
+            device_name,
             remember: remember ? true : null,
           },
           {
