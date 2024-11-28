@@ -6,6 +6,7 @@ export interface ContextProps {
   signIn: (
     username: string,
     password: string,
+    device_name?: string,
     remember?: boolean
   ) => Promise<{ twoFactor: boolean; signedIn: boolean }>;
   signOut: () => Promise<void>;
